@@ -1,43 +1,46 @@
 {{outlet}}
 <h2>User Registration</h2>
 
-<div>
-  <form {{action 'createUser' model on='submit' }}>
-    <div>
-      <label for="username">Username</label>
-      {{input id='username' placeholder='Enter your email' type='email' class='form-control' value=model.username}}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="well">
+            <form {{action 'createUser' model on='submit' }}>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    {{input id='username' placeholder='Enter your email' type='email' class='form-control' value=model.username}}
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    {{input id='password' placeholder='Enter password' class='form-control' type='password' value=model.password}}
+                </div>
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+
+            <div>
+                {{#if errorResponse}}
+                    <strong>Registration failed:</strong> {{errorResponse.summary}}
+                    {{#if errorResponse.invalidAttributes}}
+
+                        {{#if errorResponse.invalidAttributes.username}}
+                            <br>
+                            invalid username
+                            {{#each error in errorResponse.invalidAttributes.username}}
+                                <br>
+                                {{error.rule}}: {{error.message}}
+                            {{/each}}
+                        {{/if}}
+
+                        {{#if errorResponse.invalidAttributes.password}}
+                            <br>
+                            invalid password
+                            {{#each error in errorResponse.invalidAttributes.password}}
+                                <br>
+                                {{error.rule}}: {{error.message}}
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
     </div>
-    <div>
-      <label for="password">Password</label>
-      {{input id='password' placeholder='Enter password' class='form-control' type='password' value=model.password}}
-    </div>
-    <button type="submit">Register</button>
-  </form>
-
-  <div>
-    {{#if errorResponse}}
-      <strong>Registration failed:</strong> {{errorResponse.summary}}
-      {{#if errorResponse.invalidAttributes}}
-
-        {{#if errorResponse.invalidAttributes.username}}
-          <br>
-          invalid username
-          {{#each error in errorResponse.invalidAttributes.username}}
-            <br>
-            {{error.rule}}: {{error.message}}
-          {{/each}}
-        {{/if}}
-
-        {{#if errorResponse.invalidAttributes.password}}
-          <br>
-          invalid password
-          {{#each error in errorResponse.invalidAttributes.password}}
-            <br>
-            {{error.rule}}: {{error.message}}
-          {{/each}}
-        {{/if}}
-      {{/if}}
-    {{/if}}
-  </div>
-
 </div>
