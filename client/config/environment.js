@@ -3,6 +3,9 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'client',
+
+    // namespaced directory where resolver will look for your resource files
+    podModulePrefix: 'client/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
