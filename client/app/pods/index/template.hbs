@@ -6,8 +6,7 @@
           <p> Welcome, {{session.user.username}}</p>
           <a href="#" {{ action 'invalidateSession' }}>Logout</a>
         {{else}}
-          {{login-panel}}
+            {{login/login-panel}}
         {{/if}}
     </div>
 </div>
-
