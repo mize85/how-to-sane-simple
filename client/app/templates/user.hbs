@@ -1,1 +1,7 @@
-{{outlet}}
+<h2>Users</h2>
+
+{{#each model as |user|}}
+    <p>{{user.username}}</p>
+{{else}}
+    <p>no users found.</p>
+{{/each}}

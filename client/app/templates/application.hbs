@@ -1,3 +1,35 @@
-<h2 id="title">Welcome to Ember.js</h2>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            {{#link-to 'index' class="navbar-brand"}}How To Sane Simple{{/link-to}}
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+            <li>{{#link-to 'user'}}User{{/link-to}}</li>
+            <li>{{#link-to 'about'}}About{{/link-to}}</li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" {{ action 'invalidateSession' }}>Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-{{outlet}}
+    <div id="main-container" class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      {{outlet}}
+
+    </div> <!-- /container -->
+
+
+
+
